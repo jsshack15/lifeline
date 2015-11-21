@@ -164,7 +164,7 @@ for($t=0;$t<5;$t++) {
                 {
                    $nimage[$t]= "defaultlab.jpg";
 
-                    $name2[$i]='defaultlab.jpg';
+                    $name2[$t]='defaultlab.jpg';
                     $nimage[$t]= file_get_contents($nimage[$t]);
                     $nimage[$t]= base64_encode($nimage[$t]);
                     

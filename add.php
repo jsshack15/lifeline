@@ -165,7 +165,7 @@ $message=$_POST['message'];
 
 
 $sql=mysql_query("INSERT INTO lablist(labname,logoname,logo,logo2,logo3,logo4,logo5,nabl,description,link,estd,email,ownername,username) VALUES ('$name','$name2','$image[0]','$image[1]','$image[2]','$image[3]','$image[4]','$nabl','$message','$link','$estd','$email','$owner','$user')");
-$newaddress=urlencode($address);
+$newaddress=$address;
 $coordinates=Get_LatLng_From_Google_Maps($newaddress);
 $lati=$coordinates['lat'];
 $long=$coordinates['lng'];

@@ -1,5 +1,5 @@
 
- <?php include("dbaseconnection.php"); ?>
+ <?php include("dbaseconnection2.php"); ?>
  <?php
 $lat=$_POST['lat'];
 $lon=$_POST['lon'];
@@ -170,7 +170,7 @@ $u=" m";
 	
 	
 
-	if($dis<=3000){
+	if($dis<=30000){
 		
 		
 		$arr_nav[]=array("dis" => $dis , 

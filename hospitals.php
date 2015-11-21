@@ -23,33 +23,26 @@
 	
 	
 	<style type="text/css">
-	
 	input[type="text"]::-webkit-input-placeholder {
 color: white !important;
 }
  
 input[type="text"]:-moz-placeholder { /* Firefox 18- */
-color: white !important;  
+color: white  !important;  
 }
  
 input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
-color: white !important;  
+color: white  !important;  
 }
  
 input[type="text"]:-ms-input-placeholder {  
-color: white !important;  
+color: white  !important;  
 }
-	
 	
 .button.big {
 		
 		font-family: "Lato", Helvetica, sans-serif;
-			font-size: 1.55em;
-		}
-		.button.bigy {
-		
-		font-family: "Lato", Helvetica, sans-serif;
-			font-size: 1.55em;
+			font-size: 1.35em;
 		}
 .loader {
 	position: fixed;
@@ -60,9 +53,8 @@ color: white !important;
 	z-index:999;
 	background: url('page.gif') 50% 50% no-repeat rgb(0,0,0);
 }	
-
 #banner {
-		background: url("images/overlay.png"), url("../images/banner1212.jpg");
+		background: url("images/overlay.png"), url("../images/banner1213.jpg");
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -71,31 +63,6 @@ color: white !important;
 		text-align: center;
 	}
  		
-		.button {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-o-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #3ac546;
-		border-radius: 4px;
-		border: 0;
-		color: #ffffff !important;
-		cursor: pointer;
-		display: inline-block;
-		font-weight: 400;
-		height: 2.85em;
-		line-height: 2.8em;
-		padding: 0 2em;
-		text-align: center;
-		text-decoration: none;
-		white-space: nowrap;
-	}
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -112,30 +79,41 @@ color: white !important;
 					<ul> 
 						<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
 						
-						<li><a href="index.html">Path Labs</a></li>
-						<li><a href="hospitals.php">Hospitals</a></li>
-						<li><a href="clinic.php">Clinics</a></li>
-			
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>
+					
 					</ul>
 				</nav>
 			</header>
 
 		<!-- Banner -->
 			<section id="banner">
-				<h2>Lifeline.in</h2>
-				
+				<h2>Find Hospitals</h2>
+				<p><h1 class="ribbon"style="font-size: 16px !important;
+ /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+ width: 65%;
+    
+ position: relative;
+ background: rgba(65, 105, 225, 0.6);
+ color:#FFFFFF ;
+ text-align: center;
+ padding: 1em 2em; /* Adjust to suit */
+ margin: 2em auto 3em;">
+   <span style="font-family:'Lato', Helvetica, sans-serif;font-size:15pt;color:#FFFFFF;"class="ribbon-content">Compare & Book OPD Appointments Online</span>
+</h1></p>
 				<h1 class="ribbon">
-   <span style="font-family:'Lato', Helvetica, sans-serif;font-size:15pt;color:#FFFFFF;"class="ribbon-content">Instant Med-Help!</span>
+   <span style="font-family:'Lato', Helvetica, sans-serif;font-size:15pt;color:#FFFFFF;"class="ribbon-content">Find Nearby Hospitals in a click</span>
 </h1><hr />
-				
+				<ul class="actions"><form action="testlist.php#one" method="post" enctype="multipart/form-data" >
+					<li>
+						<input style="background-color: rgba(112, 219, 112, 0.2);"type="text" name="testname" class="button big" size="35" placeholder="Enter a Hospital name (Ex. Fortis Noida)"required/>
+						</li><li><input type="submit" class="button big" value="Search"/>
+					</li></form>
                      
 					
-					<hr /><ul class="actions">                  
-					<li><button class="button bigy" onclick="getLocation()" ><i class="fa fa-ambulance fa-fw"></i>&nbsp;&nbsp;Emergency Help!</i></button></li></ul>
-				   <ul class="actions"><li><a class="button big" href="index.html" ><i class="fa fa-heartbeat fa-fw"></i>&nbsp;&nbsp;Path Labs</i></a></li>
-					<li><a class="button big" href="hospitals.php" ><i class=" fa fa-hospital-o -fw"></i>&nbsp;&nbsp;Hospitals</i></a></li>
-					<li><button class="button big" onclick="" ><i class="fa fa-medkit fa-fw"></i>&nbsp;&nbsp;Clinics</i></button></li>
-					</ul>
+					<hr />
+				<li><button class="button big" onclick="getLocation()" ><i class="fa fa-thumb-tack fa-fw"></i>&nbsp;&nbsp;Find Hospitals Near you</i></button></li></ul>
 				
 				<script> 
 function animate() {
@@ -165,7 +143,7 @@ function showPosition(position) {
 
 
 
-<form  id="autosub"action="helplocate.php#two" method="post">
+<form  id="autosub"action="hlocate.php#two" method="post">
 <input type="hidden"  name="lat"id="latitude"/>
 					<input type="hidden" name="lon" id="longitude"/>
 					
@@ -186,16 +164,15 @@ function showPosition(position) {
 			  <div class="container">
 			    
 			    <div class="row 200%">
-			      
-			      <section class="4u 12u$(small)"> <i class="icon big rounded fa-ambulance"></i>
-			        <p>Get emergency help in a click.One click ambulance help.</p>
+			      <section class="4u 12u$(small)"> <i class="icon big rounded fa-clock-o"></i>
+			        <p>Compare & book OPD appointments in less than five minutes.
+			          COMPARE.SAVE TIME. SAVE MONEY!</p>
 		          </section>
-				  <section class="4u 12u$(small)"> <i class="icon big rounded fa-clock-o"></i>
-			        <p>Compare Rates & book Pathology tests in less than five minutes.
-			          COMPARE PRICES.SAVE TIME. SAVE MONEY!</p>
+			      <section class="4u 12u$(small)"> <i class="icon big rounded fa-inr"></i>
+			        <p>Find nearby hospitals in a click.</p>
 		          </section>
 			      <section class="4u$ 12u$(small)"> <i class="icon big rounded fa-user"></i>
-			        <p>Find and Contact Nearby Hospitals and Clinics in a click.</p>
+			        <p>Get genuine reviews and views of each Hospitals from our experienced sales team.</p>
 		          </section>
 		        </div>
 		      </div>
@@ -219,21 +196,19 @@ function showPosition(position) {
                             In lifeline we work for the benefit of people.</p>
 							<ul class="list">
 								<li>COMPARE PRICES.SAVE TIME. SAVE MONEY!</li>
-								<li>Find and Compare Nearby Hospitals in a click.</li>
-								<li>Find and Compare Nearby Clinics in a click.</li>
-								<li>Compare & book pathology test in less than five minutes.</li>
+								<li>Get discounted health packages.</li>
+								<li>Free Home Sample Collection.</li>
+								<li>Compare & book test in less than five minutes.</li>
 							</ul>
 						</section>
 						<section class="4u 6u$(medium) 12u$(small)">
 							<h3>Shortcuts</h3>
 							
 							<ul class="alt">
-								<li><a href="main.php">Home</a></li>
-								<li><a href="helpe.php">E-Help!</a></li>
-						<li><a href="index.html">Path Labs</a></li>
-						<li><a href="hospitals.php">Hospitals</a></li>
-						<li><a href="clinic.php">Clinics</a></li>
-						        
+								<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="add.php">Add your Hospital</a></li>
+						<li><a href="lablogin.php">Login</a></li>
 							</ul>
 						</section>
 						<section class="4u$ 12u$(medium) 12u$(small)">

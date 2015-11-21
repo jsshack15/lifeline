@@ -1,5 +1,5 @@
 
- <?php include("dbaseconnection.php"); ?>
+ <?php include("dbaseconnection2.php"); ?>
  <?php
 $lat=$_POST['lat'];
 $lon=$_POST['lon'];
@@ -61,7 +61,8 @@ color: #C7C7C7 !important;
 	height: 100%;
 	z-index: 9999;
 	background: url('page.gif') 50% 50% no-repeat rgb(0,0,0);
-}		 
+}	
+	 
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -80,14 +81,13 @@ $(window).load(function() {
 
 		<!-- Header -->
 			<header id="header" style="background:#202222;">
-				<h1 ><a href="index.html"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
+				<h1 ><a href="main.php"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html"><i class="fa fa-home fa-2x fa-fw"></i></a></li>
-						<li><a href="faq.html">FAQs</a></li>
-						<li><a href="about.php">About </a></li>
-						<li><a href="add.php">Add your Lab</a></li>
-						<li><a href="lablogin.php">Login</a></li>
+							<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -127,13 +127,13 @@ $(window).load(function() {
 				<div class="container">
 					     
 						
-                         <h2 style="font-size:40px;"><i class="fa fa-street-view"></i>&nbsp;Nearby Labs</h2>
+                         <h2 style="font-size:40px;"><i class="fa fa-street-view"></i>&nbsp;Nearby Hospitals</h2>
                           
-		 <form method="post" action="compare.php#two">
+		 <form method="post" action="hcompare.php#two">
 					<div class="12u$">
 										<ul class="actions">
 									      
-											<li><input type="submit"name="submit" value="Compare Selected Labs" class="special" /></li>
+											<li><input type="submit"name="submit" value="Compare Selected Hospitals" class="special" /></li>
 											
 										</ul></div>
 					</header>
@@ -144,7 +144,7 @@ $(window).load(function() {
 									<thead>
 										<tr style="font-size:20px;">
 											<th style="text-align:center;"><i class="fa fa-check-square-o  fa-lg"></i>&nbsp;&nbsp;&nbsp;</th>
-											<th style="text-align:center;"><i class="fa fa-flask"></i>&nbsp;&nbsp;Lab Name</th>
+											<th style="text-align:center;"><i class="fa fa-hospital-o fa-lg"></i>&nbsp;&nbsp;Hospital Name</th>
 											<th style="text-align:center;"><i class="fa fa-location-arrow"></i>&nbsp;&nbsp;Distance</th>
 										</tr>
 									</thead>
@@ -230,11 +230,10 @@ for($k=1;$k<$x;$k++){
 							<h3>Shortcuts</h3>
 							
 							<ul class="alt">
-								<li><a href="index.html">Home</a></li>
-						        <li><a href="faq.html">FAQs</a></li>
-						        <li><a href="about.php">About </a></li>
-						        <li><a href="add.php">Add your Lab</a></li>
-						        <li><a href="lablogin.php">Login</a></li>
+								<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>
 							</ul>
 						</section>
 						<section class="4u$ 12u$(medium) 12u$(small)">

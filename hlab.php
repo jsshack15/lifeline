@@ -1,6 +1,6 @@
 
 
- <?php include("dbaseconnection.php"); 
+ <?php include("dbaseconnection2.php"); 
  $id=$_GET['id'];
  $sql=mysql_query("Update lablist set likes=likes+1 where id='$id'");
  ?>
@@ -93,14 +93,13 @@ $(window).load(function() {
 <div class="loader"></div>
 		<!-- Header -->
 			<header id="header" style="background:#202222;">
-				<h1><a href="index.html"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
+				<h1><a href="main.php"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="faq.html">FAQs</a></li>
-						<li><a href="about.php">About </a></li>
-						<li><a href="add.php">Add your Lab</a></li>
-						<li><a href="lablogin.php">Login</a></li>
+						<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>	
 					</ul>
 				</nav>
 			</header>
@@ -138,7 +137,7 @@ $(window).load(function() {
 	</div>
 			</section>
 	<header>
-			<?php   echo'<p><span style="font-size:25px;color:white;font-weight:bold;">'.$row[0].'</span></br><a id="showonmap"href="showmap.php?id='.$id.'"class="button fit">show on map</a></p>';?>
+			<?php   echo'<p><span style="font-size:25px;color:white;font-weight:bold;">'.$row[0].'</span></br><a id="showonmap"href="hshowonmap.php?id='.$id.'"class="button fit">show on map</a></p>';?>
 			       </header>
 			   
 				<div class="table-wrapper">
@@ -146,7 +145,7 @@ $(window).load(function() {
 									<thead>
 									<tr style="background:rgba(244, 244, 244, 0.95);">
 											
-											<th colspan="2"style="text-align:center;padding-top:6px;border-bottom:3px dashed ;"><a href="bookonlinenearby.php?lab_name=<?php print $lname; ?>"id="book"class="button">Book test online!</a></th>
+											<th colspan="2"style="text-align:center;padding-top:6px;border-bottom:3px dashed ;"><a href="hbookonlinenearby.php?lab_name=<?php print $lname; ?>"id="book"class="button">Book OPD Apppointment online!</a></th>
 										</tr>
 								
 										
@@ -157,22 +156,10 @@ $(window).load(function() {
 							<blockquote><?php echo $output[0];?></br>call at : <span style="color:#33FFFF;"><?php echo $output[1];?></span> .</blockquote></td>
 									 </tr>
 									 <tr>
-									 <td colspan="3"<h4><span style="font-size:17px;color:lightgreen;">Lab Description</span></h4>
+									 <td colspan="3"<h4><span style="font-size:17px;color:lightgreen;">Hospital Description</span></h4>
 							<blockquote><?php echo $row[3];?></blockquote></td>
 									 </tr>
-									 <tr style="background:rgba(244, 244, 244, 0.95);">
-											<th style="text-align:center;">Test Name</th>
-											<th style="text-align:center;">Rate</th>
-										</tr>
-									<?php
-                                     $query=mysql_query("select tname,rate from testnames where labname='$lname'");
-									 while($r=mysql_fetch_row($query))
-									 {
-									
-											echo'<tr><td>'.$r[0].'</td>
-											<td>Rs '.$r[1].'</td>
-									 </tr style="border-bottom:3px dashed white;">';}
-									 ?>										
+									 						
 									</tbody>
 									
 								</table>
@@ -204,11 +191,10 @@ $(window).load(function() {
 							<h3>Shortcuts</h3>
 							
 							<ul class="alt">
-								<li><a href="index.html">Home</a></li>
-						        <li><a href="faq.html">FAQs</a></li>
-						        <li><a href="about.php">About </a></li>
-						        <li><a href="add.php">Add your Lab</a></li>
-						        <li><a href="lablogin.php">Login</a></li>
+							<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>	
 							</ul>
 						</section>
 						<section class="4u$ 12u$(medium) 12u$(small)">

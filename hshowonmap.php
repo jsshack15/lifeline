@@ -1,7 +1,7 @@
  
  
  <?php
- include("dbaseconnection.php");
+ include("dbaseconnection2.php");
  $id=$_GET['id'];
  $sql=mysql_query("Update lablist set likes=likes+1 where id='$id'");
  
@@ -12,7 +12,7 @@
  $sql2=mysql_query("select address,latitude,longitude from labbranch where labname='$lname'");
   $r=mysql_fetch_row($sql2);
  $address=$r[0];
- 
+ $address=$row[0].", ".$address;
  $address=urlencode($address);
 
  
@@ -67,14 +67,13 @@ $lo=$r[2];
 
 		<!-- Header -->
 			<header id="header">
-				<h1><a href="index.html"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
+				<h1><a href="main.php"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="faq.html">FAQs</a></li>
-						<li><a href="about.php">About </a></li>
-						<li><a href="add.php">Add your Lab</a></li>
-						<li><a href="lablogin.php">Login</a></li>
+						<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -150,11 +149,11 @@ $lo=$r[2];
 							<h3>Shortcuts</h3>
 							
 							<ul class="alt">
-								<li><a href="index.html">Home</a></li>
-						        <li><a href="faq.html">FAQs</a></li>
-						        <li><a href="about.php">About </a></li>
-						        <li><a href="add.php">Add your Lab</a></li>
-						        <li><a href="lablogin.php">Login</a></li>
+								<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="hadd.php">Add your Hospital</a></li>
+						<li><a href="hlablogin.php">Login</a></li>
+					</ul>
 							</ul>
 						</section>
 						<section class="4u$ 12u$(medium) 12u$(small)">
