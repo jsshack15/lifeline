@@ -200,6 +200,8 @@ $hospital=$sour[0];
 $address=$sour[1];
 $phone=$sour[2];
 
+$sql400=mysql_query("select username from lablist where labname='$lna'");
+$sol=mysql_fetch_row($sql400);
 
 echo'<tr>
 											
@@ -209,7 +211,7 @@ echo'<tr>
 	</tr>';
 
 	
- $sql200=mysql_query("insert into dashboard (address,name,phone,time,date,lat,lon) values ('$address','$hospital','$phone',CURTIME(),CURDATE(),'$lat','$lon')"); ?>						
+ $sql200=mysql_query("insert into dashboard (address,name,phone,time,date,lat,lon,username) values ('$address','$hospital','$phone',CURTIME(),CURDATE(),'$lat','$lon','$sol[0]')"); ?>						
 					</tbody>
 </table>					
 					</div>
