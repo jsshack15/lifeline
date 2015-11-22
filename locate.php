@@ -159,11 +159,11 @@ $id=$row[3];
 
 $dis=distance($lat, $lon, $la, $lo,"K");
 if($dis>999){
-	$distance=sprintf('%0.0f', ($dis/1000));
+	$distance=sprintf('%0.2f', ($dis/1000));
 	$u=" km";
 }
 else
-{$distance=sprintf('%0.0f', $dis);
+{$distance=sprintf('%0.2f', $dis);
 $u=" m";
 }
 	

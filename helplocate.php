@@ -83,11 +83,12 @@ $(window).load(function() {
 				<h1 ><a href="index.html"><img src="lifelinelogo2.png" style="padding-top:4px;"height="90" width="250"></img></a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html"><i class="fa fa-home fa-2x fa-fw"></i></a></li>
-						<li><a href="faq.html">FAQs</a></li>
-						<li><a href="about.php">About </a></li>
-						<li><a href="add.php">Add your Lab</a></li>
-						<li><a href="lablogin.php">Login</a></li>
+						<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="index.html">Path Labs</a></li>
+						<li><a href="hospitals.php">Hospitals</a></li>
+						<li><a href="clinic.php">Clinics</a></li>
+			
 					</ul>
 				</nav>
 			</header>
@@ -127,28 +128,20 @@ $(window).load(function() {
 				<div class="container">
 					     
 						
-                         <h2 style="font-size:40px;"><i class="fa fa-street-view"></i>&nbsp;Nearby Labs</h2>
+                         <h2 style="font-size:40px;"><i class="fa fa-street-view"></i>&nbsp;Nearest Hospital </h2>
                           
 		 <form method="post" action="compare.php#two">
 					<div class="12u$">
 										<ul class="actions">
 									      
-											<li><input type="submit"name="submit" value="Compare Selected Labs" class="special" /></li>
+											
 											
 										</ul></div>
 					</header>
 					
 			<div class="table-wrapper">
-			
-								<table>
+									<table>
 									<thead>
-										<tr style="font-size:20px;">
-											<th style="text-align:center;"><i class="fa fa-check-square-o  fa-lg"></i>&nbsp;&nbsp;&nbsp;</th>
-											<th style="text-align:center;"><i class="fa fa-flask"></i>&nbsp;&nbsp;Lab Name</th>
-											<th style="text-align:center;"><i class="fa fa-location-arrow"></i>&nbsp;&nbsp;Distance</th>
-										</tr>
-									</thead>
-									<tbody>
 									<?php
 $sql=mysql_query("select latitude,longitude,labname,id from labbranch");
 $x=1;
@@ -159,18 +152,18 @@ $id=$row[3];
 
 $dis=distance($lat, $lon, $la, $lo,"K");
 if($dis>999){
-	$distance=sprintf('%0.0f', ($dis/1000));
+	$distance=sprintf('%0.2f', ($dis/1000));
 	$u=" km";
 }
 else
-{$distance=sprintf('%0.0f', $dis);
+{$distance=sprintf('%0.2f', $dis);
 $u=" m";
 }
 	
 	
 	
 
-	if($dis<=30000){
+	if($dis<=3000){
 		
 		
 		$arr_nav[]=array("dis" => $dis , 
@@ -186,27 +179,40 @@ $u=" m";
 }
 
 array_multisort($arr_nav);
-for($k=1;$k<$x;$k++){
+ 
+	$ide=$arr_nav[0]['id'];
+	$lna=$arr_nav[0]['lname'];
+	
 	echo'<tr>
-											<td>
-										<input type="checkbox" value="'.$arr_nav[$i]['id'].'" id="'.$i.'" name="check[]">
-										<label for="'.$i.'"></label>
-									</td>
-											<td><a style="text-decoration:none;"href="#">'.$arr_nav[$i]['lname'].'</a></td>
-											<td><strong>'.$arr_nav[$i]['distance'].'</strong> '.$arr_nav[$i]['unit'].'</td>
+											
+											<td><a style="text-decoration:none;font-size:25px;"href="#">'.$arr_nav[0]['lname'].'</a></td>
+											&nbsp;&nbsp;
+											<td><strong>Distance->&nbsp; '.$arr_nav[0]['distance'].'</strong> '.$arr_nav[0]['unit'].'</td>
 	</tr>';
 	$i++;									
-}
-?>									
-										
-									</tbody>
-									<tfoot>
-										
-									</tfoot>
-								</table>
-							</div>	 
-				  </form>
-					
+
+?>		<br />	<br /></thead><tbody><?php  
+
+
+$sql100=mysql_query("select labname,address,phone from labbranch where labname='$lna'");
+$sour=mysql_fetch_row($sql100);
+$hospital=$sour[0];
+$address=$sour[1];
+$phone=$sour[2];
+
+
+echo'<tr>
+											
+											<td><strong style="color:red;">Ph No.->&nbsp;'.$phone.' </strong></td>
+											&nbsp;&nbsp;
+											<td><strong style="color:red;">Address->&nbsp;'.$address.' </strong></td>
+	</tr>';
+
+	
+ $sql200=mysql_query("insert into dashboard (address,name,phone,time,date,lat,lon) values ('$address','$hospital','$phone',CURTIME(),CURDATE(),'$lat','$lon')"); ?>						
+					</tbody>
+</table>					
+					</div>
 				</div>
 			</section>
 
@@ -230,11 +236,12 @@ for($k=1;$k<$x;$k++){
 							<h3>Shortcuts</h3>
 							
 							<ul class="alt">
-								<li><a href="index.html">Home</a></li>
-						        <li><a href="faq.html">FAQs</a></li>
-						        <li><a href="about.php">About </a></li>
-						        <li><a href="add.php">Add your Lab</a></li>
-						        <li><a href="lablogin.php">Login</a></li>
+								<li><a href="main.php"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+						
+						<li><a href="index.html">Path Labs</a></li>
+						<li><a href="hospitals.php">Hospitals</a></li>
+						<li><a href="clinic.php">Clinics</a></li>
+			
 							</ul>
 						</section>
 						<section class="4u$ 12u$(medium) 12u$(small)">

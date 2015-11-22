@@ -159,11 +159,11 @@ $id=$row[3];
 
 $dis=distance($lat, $lon, $la, $lo,"K");
 if($dis>999){
-	$distance=sprintf('%0.0f', ($dis/1000));
+	$distance=sprintf('%0.2f', ($dis/1000));
 	$u=" km";
 }
 else
-{$distance=sprintf('%0.0f', $dis);
+{$distance=sprintf('%0.2f', $dis);
 $u=" m";
 }
 	
@@ -187,7 +187,7 @@ $u=" m";
 
 array_multisort($arr_nav);
 for($k=1;$k<$x;$k++){
-	echo'<tr>
+	echo'<tr> 
 											<td>
 										<input type="checkbox" value="'.$arr_nav[$i]['id'].'" id="'.$i.'" name="check[]">
 										<label for="'.$i.'"></label>
